@@ -1,0 +1,15 @@
+motor,min,max
+left_waist,-0.073631,0.041417
+left_shoulder,-0.958738,-0.104311
+left_elbow,0.682621,1.247126
+left_forearm_roll,-0.202485,0.012272
+left_wrist_angle,-0.837554,-0.263845
+left_wrist_rotate,-0.337476,0.130388
+left_gripper,0.153093,1.141491
+right_waist,-0.340544,0.331340
+right_shoulder,-1.040039,0.279185
+right_elbow,0.469398,1.293146
+right_forearm_roll,-1.445010,0.250039
+right_wrist_angle,-1.015495,0.612058
+right_wrist_rotate,-1.362175,1.221049
+right_gripper,0.140918,1.200420

@@ -1,0 +1,96 @@
+{
+  "summary": {
+    "repo_id": "lerobot/aloha_sim_transfer_cube_human",
+    "codebase_version": "v3.0",
+    "robot_type": "aloha",
+    "total_episodes": "50",
+    "total_frames": "20000",
+    "total_tasks": "1",
+    "fps": "50",
+    "episode_count_from_meta": "50",
+    "episode_index_min": "0",
+    "episode_index_max": "49",
+    "frames_per_episode_min": "400",
+    "frames_per_episode_max": "400",
+    "image_key": "observation.images.top",
+    "image_dtype": "video",
+    "image_shape": "480x640x3",
+    "state_dim": "14",
+    "action_dim": "14",
+    "state_dtype": "float32",
+    "action_dtype": "float32",
+    "task_0": "Pick up the cube with the right arm and transfer it to the left arm."
+  },
+  "action_ranges": [
+    {
+      "motor": "left_waist",
+      "min": "-0.073631",
+      "max": "0.041417"
+    },
+    {
+      "motor": "left_shoulder",
+      "min": "-0.958738",
+      "max": "-0.104311"
+    },
+    {
+      "motor": "left_elbow",
+      "min": "0.682621",
+      "max": "1.247126"
+    },
+    {
+      "motor": "left_forearm_roll",
+      "min": "-0.202485",
+      "max": "0.012272"
+    },
+    {
+      "motor": "left_wrist_angle",
+      "min": "-0.837554",
+      "max": "-0.263845"
+    },
+    {
+      "motor": "left_wrist_rotate",
+      "min": "-0.337476",
+      "max": "0.130388"
+    },
+    {
+      "motor": "left_gripper",
+      "min": "0.153093",
+      "max": "1.141491"
+    },
+    {
+      "motor": "right_waist",
+      "min": "-0.340544",
+      "max": "0.331340"
+    },
+    {
+      "motor": "right_shoulder",
+      "min": "-1.040039",
+      "max": "0.279185"
+    },
+    {
+      "motor": "right_elbow",
+      "min": "0.469398",
+      "max": "1.293146"
+    },
+    {
+      "motor": "right_forearm_roll",
+      "min": "-1.445010",
+      "max": "0.250039"
+    },
+    {
+      "motor": "right_wrist_angle",
+      "min": "-1.015495",
+      "max": "0.612058"
+    },
+    {
+      "motor": "right_wrist_rotate",
+      "min": "-1.362175",
+      "max": "1.221049"
+    },
+    {
+      "motor": "right_gripper",
+      "min": "0.140918",
+      "max": "1.200420"
+    }
+  ]
+}

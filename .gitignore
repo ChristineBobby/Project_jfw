@@ -1,0 +1,34 @@
+# Python runtime artifacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local environments and caches
+.conda/
+.cache/
+.venv/
+venv/
+
+# Dataset and large generated artifacts
+data/cache/
+data/raw/
+data/features/
+data/coresets/*.npz
+data/coresets/*.npy
+experiments/runs/
+results/predictions/
+
+# Keep lightweight, reproducible Step 1 outputs committed.
+!results/tables/
+!results/tables/*.csv
+!results/tables/*.json
+!results/figures/
+!results/figures/dataset_samples.png
+
+# Editor and OS files
+.DS_Store
+.vscode/
+.idea/

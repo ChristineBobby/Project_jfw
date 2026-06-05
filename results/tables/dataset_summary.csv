@@ -1,0 +1,21 @@
+metric,value
+repo_id,lerobot/aloha_sim_transfer_cube_human
+codebase_version,v3.0
+robot_type,aloha
+total_episodes,50
+total_frames,20000
+total_tasks,1
+fps,50
+episode_count_from_meta,50
+episode_index_min,0
+episode_index_max,49
+frames_per_episode_min,400
+frames_per_episode_max,400
+image_key,observation.images.top
+image_dtype,video
+image_shape,480x640x3
+state_dim,14
+action_dim,14
+state_dtype,float32
+action_dtype,float32
+task_0,Pick up the cube with the right arm and transfer it to the left arm.
