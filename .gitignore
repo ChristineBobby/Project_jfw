@@ -18,6 +18,7 @@ data/raw/
 data/features/
 data/coresets/*.npz
 data/coresets/*.npy
+experiments/logs/
 experiments/runs/
 results/predictions/
 
