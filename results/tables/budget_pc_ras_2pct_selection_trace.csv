@@ -1,0 +1,2 @@
+selection_order,episode_index,final_score,saliency_score,diversity_score,raw_diversity_distance,source_episode_score
+1,36,1.0,1.0,1.0,1.0,1.253870964050293

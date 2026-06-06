@@ -1,0 +1,17 @@
+{
+  "method": "random_episode",
+  "unit": "episode",
+  "seed": 1,
+  "budget_episodes": 8,
+  "selected_episodes": [
+    4,
+    7,
+    8,
+    16,
+    28,
+    30,
+    31,
+    36
+  ],
+  "notes": "Random 10% episode baseline sampled from candidate_train only."
+}

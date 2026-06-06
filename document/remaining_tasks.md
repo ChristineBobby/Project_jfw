@@ -44,7 +44,7 @@ This checklist records what is still useful or required after the current PC-RAS
   - `results/figures/coverage_pca.{png,pdf}`
 - [x] Latest fresh test run passed in Docker:
   - `PYTHONPATH=src /workspace/.conda/envs/coredataset/bin/python -m unittest discover -s tests -p "test_*.py"`
-  - result: `Ran 34 tests ... OK`
+  - result: `Ran 42 tests ... OK`
 
 ## Must Do Before Final Report
 
@@ -78,14 +78,14 @@ This checklist records what is still useful or required after the current PC-RAS
 
 ## Strongly Recommended
 
-- [ ] Full-data upper bound.
-  - [ ] Train CLIP MLP on all `candidate_train` episodes `0..39`.
-  - [ ] Save `results/tables/full_clip_summary.csv`.
-  - [ ] Use it as an upper-bound reference, not as the main comparison.
+- [x] Full-data upper bound.
+  - [x] Train CLIP MLP on all `candidate_train` episodes `0..39`.
+  - [x] Save `results/tables/full_clip_summary.csv`.
+  - [x] Use it as an upper-bound reference, not as the main comparison.
 
-- [ ] Selected episode explanation table.
-  - [ ] Produce `results/tables/pc_ras_selected_episode_explanations.csv`.
-  - [ ] Include:
+- [x] Selected episode explanation table.
+  - [x] Produce `results/tables/pc_ras_selected_episode_explanations.csv`.
+  - [x] Include:
     - episode index
     - episode saliency
     - top frame indices
@@ -96,38 +96,38 @@ This checklist records what is still useful or required after the current PC-RAS
     - diversity distance or selection trace score
     - short selected reason
 
-- [ ] Score timeline visualizations.
-  - [ ] Produce representative `results/figures/score_timeline_episode_*.{png,pdf}`.
-  - [ ] Prefer a small set such as selected episodes `36`, `20`, `6`, plus one low-score episode.
-  - [ ] Avoid dense labels; use shaded phase bins and minimal annotations.
+- [x] Score timeline visualizations.
+  - [x] Produce representative `results/figures/score_timeline_episode_*.{png,pdf}`.
+  - [x] Prefer a small set such as selected episodes `36`, `20`, `6`, plus one low-score episode.
+  - [x] Avoid dense labels; use shaded phase bins and minimal annotations.
 
-- [ ] Action curve comparison figure.
-  - [ ] Compare Random-10% selected episodes and PC-RAS selected episodes.
-  - [ ] Plot only selected action dimensions or small multiples to avoid clutter.
-  - [ ] Save `results/figures/selected_episode_action_curves.{png,pdf}`.
+- [x] Action curve comparison figure.
+  - [x] Compare Random-10% selected episodes and PC-RAS selected episodes.
+  - [x] Plot only selected action dimensions or small multiples to avoid clutter.
+  - [x] Save `results/figures/selected_episode_action_curves.{png,pdf}`.
 
 ## Optional Enhancements
 
-- [ ] Phase-aware MSE.
-  - [ ] Define phase bins over `frame_index / episode_length`.
-  - [ ] Compute phase-wise MSE for Random-10% and PC-RAS predictions.
-  - [ ] Save `results/tables/phase_mse_summary.csv`.
-  - [ ] Save `results/figures/phase_mse_bar_chart.{png,pdf}`.
+- [x] Phase-aware MSE.
+  - [x] Define phase bins over `frame_index / episode_length`.
+  - [x] Compute phase-wise MSE for Random-10% and PC-RAS predictions.
+  - [x] Save `results/tables/phase_mse_summary.csv`.
+  - [x] Save `results/figures/phase_mse_bar_chart.{png,pdf}`.
 
-- [ ] Key-frame visualization.
-  - [ ] Extract selected high-score frames from raw data/video.
-  - [ ] Annotate PC score, RAS score, phase, and reason.
-  - [ ] Keep annotations outside image tiles or in a consistent caption band to avoid occlusion.
+- [x] Key-frame visualization.
+  - [x] Extract selected high-score frames from raw data/video.
+  - [x] Annotate PC score, RAS score, phase, and reason.
+  - [x] Keep annotations outside image tiles or in a consistent caption band to avoid occlusion.
 
-- [ ] ResNet18 robustness experiment.
-  - [ ] Extract ResNet18 features under `data/features/resnet18_top_left7/`.
-  - [ ] Run Random-10% and PC-RAS with the same MLP.
-  - [ ] Report whether the selection conclusion depends on CLIP.
+- [x] ResNet18 robustness experiment.
+  - [x] Extract ResNet18 features under `data/features/resnet18_top_left7/`.
+  - [x] Run Random-10% and PC-RAS with the same MLP.
+  - [x] Report whether the selection conclusion depends on CLIP.
 
-- [ ] Budget curve.
-  - [ ] Evaluate 2%, 5%, 10%, and 20% episode or frame budgets.
-  - [ ] Save `results/tables/budget_curve_summary.csv`.
-  - [ ] Save `results/figures/budget_curve.{png,pdf}`.
+- [x] Budget curve.
+  - [x] Evaluate 2%, 5%, 10%, and 20% episode or frame budgets.
+  - [x] Save `results/tables/budget_curve_summary.csv`.
+  - [x] Save `results/figures/budget_curve.{png,pdf}`.
 
 ## Reproducibility And Workflow Reminders
 
