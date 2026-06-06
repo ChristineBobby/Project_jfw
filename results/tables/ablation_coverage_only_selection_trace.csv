@@ -1,0 +1,6 @@
+method,selection_order,episode_index,final_score,saliency_score,diversity_score,raw_diversity_distance,source_episode_score
+coverage_only,1,0,1.0,0.0,1.0,1.0,1.0
+coverage_only,2,5,1.0,0.0,1.0,0.1571800261735916,1.0
+coverage_only,3,37,1.0,0.0,1.0,0.13112063705921173,1.0
+coverage_only,4,22,1.0,0.0,1.0,0.13105809688568115,1.0
+coverage_only,5,2,1.0,0.0,1.0,0.12335792183876038,1.0

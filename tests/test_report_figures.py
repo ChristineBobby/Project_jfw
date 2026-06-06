@@ -7,6 +7,7 @@ import pandas as pd
 from vla_coreset.visualization.report_figures import (
     FigureInputs,
     build_method_summary,
+    make_ablation_figure,
     make_report_figures,
     per_dimension_mse_table,
 )
@@ -90,6 +91,31 @@ class ReportFiguresTest(unittest.TestCase):
             written = make_report_figures(inputs)
 
             self.assertEqual(len(written), 10)
+            for path in written:
+                self.assertTrue(path.exists(), path)
+                self.assertGreater(path.stat().st_size, 1000, path)
+
+    def test_make_ablation_figure_writes_png_and_pdf(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            root = Path(tmpdir)
+            summary = pd.DataFrame(
+                {
+                    "variant": [
+                        "action_delta_only",
+                        "visual_delta_only",
+                        "pc_only",
+                        "pc_ras_no_coverage",
+                        "coverage_only",
+                        "pc_ras_full",
+                    ],
+                    "test_original_mse_mean": [0.0081, 0.0089, 0.0065, 0.0059, 0.0082, 0.0058],
+                    "test_original_mse_std": [0.0004, 0.0005, 0.0017, 0.0016, 0.0007, 0.0015],
+                }
+            )
+
+            written = make_ablation_figure(summary, root)
+
+            self.assertEqual([path.name for path in written], ["ablation_mse_comparison.png", "ablation_mse_comparison.pdf"])
             for path in written:
                 self.assertTrue(path.exists(), path)
                 self.assertGreater(path.stat().st_size, 1000, path)

@@ -1,0 +1,61 @@
+{
+  "method": "ablation_coverage_only",
+  "variant": "coverage_only",
+  "unit": "episode",
+  "budget_episodes": 5,
+  "selected_episodes": [
+    0,
+    5,
+    37,
+    22,
+    2
+  ],
+  "source_frame_score_file": "data/cache/selection/pc_ras_frame_scores.parquet",
+  "selection_trace": [
+    {
+      "selection_order": 1,
+      "episode_index": 0,
+      "final_score": 1.0,
+      "saliency_score": 0.0,
+      "diversity_score": 1.0,
+      "raw_diversity_distance": 1.0,
+      "source_episode_score": 1.0
+    },
+    {
+      "selection_order": 2,
+      "episode_index": 5,
+      "final_score": 1.0,
+      "saliency_score": 0.0,
+      "diversity_score": 1.0,
+      "raw_diversity_distance": 0.1571800261735916,
+      "source_episode_score": 1.0
+    },
+    {
+      "selection_order": 3,
+      "episode_index": 37,
+      "final_score": 1.0,
+      "saliency_score": 0.0,
+      "diversity_score": 1.0,
+      "raw_diversity_distance": 0.13112063705921173,
+      "source_episode_score": 1.0
+    },
+    {
+      "selection_order": 4,
+      "episode_index": 22,
+      "final_score": 1.0,
+      "saliency_score": 0.0,
+      "diversity_score": 1.0,
+      "raw_diversity_distance": 0.13105809688568115,
+      "source_episode_score": 1.0
+    },
+    {
+      "selection_order": 5,
+      "episode_index": 2,
+      "final_score": 1.0,
+      "saliency_score": 0.0,
+      "diversity_score": 1.0,
+      "raw_diversity_distance": 0.12335792183876038,
+      "source_episode_score": 1.0
+    }
+  ]
+}

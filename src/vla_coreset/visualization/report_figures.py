@@ -20,6 +20,9 @@ COLORS = {
     "final": "#2D4F7C",
     "saliency": "#D95F4D",
     "diversity": "#4C9A6A",
+    "ablation_baseline": "#8C94A3",
+    "ablation_component": "#5B8DB8",
+    "ablation_full": "#D95F4D",
 }
 
 
@@ -94,6 +97,77 @@ def _save_figure(fig: plt.Figure, output_dir: Path, stem: str) -> list[Path]:
         fig.savefig(path, bbox_inches="tight", facecolor="white")
     plt.close(fig)
     return paths
+
+
+def make_ablation_figure(ablation_summary: pd.DataFrame, output_dir: Path) -> list[Path]:
+    required = {"variant", "test_original_mse_mean", "test_original_mse_std"}
+    missing = required.difference(ablation_summary.columns)
+    if missing:
+        raise ValueError(f"Missing ablation summary columns: {sorted(missing)}")
+
+    set_paper_style()
+    labels = {
+        "action_delta_only": "ActionDelta-only",
+        "visual_delta_only": "VisualDelta-only",
+        "pc_only": "PC-only",
+        "pc_ras_no_coverage": "PC+RAS",
+        "coverage_only": "Coverage-only",
+        "pc_ras_full": "PC+RAS+Coverage",
+    }
+    order = [
+        "visual_delta_only",
+        "action_delta_only",
+        "coverage_only",
+        "pc_only",
+        "pc_ras_no_coverage",
+        "pc_ras_full",
+    ]
+    summary = ablation_summary.set_index("variant").loc[order].reset_index()
+    y = np.arange(len(summary))
+    means = summary["test_original_mse_mean"].astype(float).to_numpy()
+    stds = summary["test_original_mse_std"].astype(float).fillna(0.0).to_numpy()
+    row_colors = [
+        COLORS["ablation_full"] if variant == "pc_ras_full" else COLORS["ablation_component"]
+        for variant in summary["variant"]
+    ]
+    row_colors[0] = COLORS["ablation_baseline"]
+    row_colors[1] = COLORS["ablation_baseline"]
+    row_colors[2] = COLORS["ablation_baseline"]
+
+    fig, ax = plt.subplots(figsize=(6.7, 3.55), constrained_layout=True)
+    ax.errorbar(
+        means,
+        y,
+        xerr=stds,
+        fmt="none",
+        ecolor="#31343A",
+        elinewidth=1.15,
+        capsize=3,
+        capthick=1.0,
+        zorder=2,
+    )
+    ax.scatter(means, y, s=52, c=row_colors, edgecolor="#2F2F2F", linewidth=0.55, zorder=3)
+    ax.set_yticks(y, [labels[variant] for variant in summary["variant"]])
+    ax.invert_yaxis()
+    ax.set_xlabel("Test MSE, original action space")
+    ax.set_title("Ablation of PC-RAS selection components")
+    ax.grid(axis="x", alpha=0.26)
+    ax.grid(axis="y", visible=False)
+    xmin = max(0.0, float((means - stds).min()) * 0.88)
+    xmax = float((means + stds).max()) * 1.12
+    ax.set_xlim(xmin, xmax)
+    value_offset = (xmax - xmin) * 0.018
+    for xpos, ypos, err in zip(means, y, stds):
+        ax.text(
+            xpos + err + value_offset,
+            ypos,
+            f"{xpos:.4f}",
+            va="center",
+            ha="left",
+            fontsize=8,
+            color="#2A2D33",
+        )
+    return _save_figure(fig, output_dir, "ablation_mse_comparison")
 
 
 def _plot_main_mse(inputs: FigureInputs) -> list[Path]:
